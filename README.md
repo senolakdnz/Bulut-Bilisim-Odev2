@@ -12,7 +12,7 @@ from flask import Flask, request, render_template_string
 
 app = Flask(__name__)
 
-# Basit bir HTML şablonu
+Basit bir HTML şablonu
 HTML_SABLONU = """
 <!DOCTYPE html>
 <html>

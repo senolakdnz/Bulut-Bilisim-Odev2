@@ -8,52 +8,7 @@ Kullanılan Bulut Uygulaması : Google Cloud
 
 # 2- Web'de yayınlanmak üzere bir uygulama geliştirildi.
 
-from flask import Flask, request, render_template_string
-
-app = Flask(__name__)
-
-Basit bir HTML şablonu
-HTML_SABLONU = """
-<!DOCTYPE html>
-<html>
-<head><title>Bulut Mağazası</title></head>
-<body>
-    <h2>Ürünlerimiz</h2>
-    <form method="POST">
-        <select name="islem">
-            <option value="1">Bilgisayar (69.999 TL)</option>
-            <option value="2">Telefon (44.999 TL)</option>
-            <option value="3">Konsol (29.999 TL)</option>
-            <option value="4">Saat (9.999 TL)</option>
-        </select>
-        <input type="number" name="adet" placeholder="Adet giriniz" required>
-        <button type="submit">Hesapla</button>
-    </form>
-    {% if sonuc %}
-        <h3>{{ sonuc }}</h3>
-    {% endif %}
-</body>
-</html>
-"""
-
-@app.route("/", methods=["GET", "POST"])
-def index():
-    sonuc = ""
-    if request.method == "POST":
-        islem = int(request.form.get("islem"))
-        adet = int(request.form.get("adet"))
-        fiyatlar = {1: 69999, 2: 44999, 3: 29999, 4: 9999}
-        isimler = {1: "Bilgisayar", 2: "Telefon", 3: "Konsol", 4: "Saat"}
-        
-        tutar = fiyatlar[islem] * adet
-        sonuc = f"Seçilen: {isimler[islem]} - Toplam Tutar: {tutar:,} TL"
-    
-    return render_template_string(HTML_SABLONU, sonuc=sonuc)
-
-if __name__ == "__main__":
-    # AWS EC2 üzerinde çalışması için 0.0.0.0 üzerinden 5000 portunda çalıştırıyoruz
-    app.run(host="0.0.0.0", port=5000) 
-
+<img width="774" height="846" alt="Ekran görüntüsü 2025-12-27 161011" src="https://github.com/user-attachments/assets/4e6875fb-4b5e-4b9b-a4c0-bfad12acc41f" />
 
 # 3- Sanal Sunucu Başlatıldı
 <img width="1260" height="162" alt="02" src="https://github.com/user-attachments/assets/be886fa6-4e7a-4d7c-90ef-19bb38c60e66" />
